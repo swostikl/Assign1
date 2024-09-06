@@ -36,7 +36,7 @@ if numbers:
         print(f"The largest number is ,{max(numbers)}")
 
 
-#done with for loop
+#done with for long methoa
 smallest=None
 largest=None
 while True:
