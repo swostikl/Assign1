@@ -1,18 +1,19 @@
 #1.Write a program that uses a while loop to print out all numbers divisible by three in the range of 1-1000.
 
 num=0
-while num<=1000:
+while num<1000:
     num=num+1
     div=num%3
     if div==0:
         print("Number divisible by 3 is : ",num)
+
 
 #2.Write a program that converts inches to centimeters until the user inputs a negative value. Then the program ends.
 
 # 1 inch = 2.54 cm
 
 while True:
-    inches=float(input( " Enter a number in inch (not a  negative number): "))
+    inches=float(input( " Enter a number in inch (negative number to exit): "))
     if inches<0:
         print("Program ended as it is negative value.")
         break
@@ -22,7 +23,7 @@ while True:
 #3.Write a program that asks the user to enter numbers until they enter an empty string to quit. Finally,
 # the program prints out the smallest and largest number from the numbers it received.
 
-
+#done with shortcut method
 numbers=[]
 while True:
     a=input("Enter a number (or press enter to finish):")
@@ -33,6 +34,23 @@ while True:
 if numbers:
         print(f"The smallest number is ,{min(numbers)}")
         print(f"The largest number is ,{max(numbers)}")
+
+
+#done with for loop
+smallest=None
+largest=None
+while True:
+    a=input("Enter a number: ")
+    if a=="":
+         break
+    number=int(a)
+    if  smallest is None or number<smallest:
+        smallest=number
+    elif largest is None or number>largest:
+        largest=number
+print(f"The smallest number is {smallest}")
+print(f"The largest number is {largest}")
+
 
 
 #4.Write a game where the computer draws a random integer between 1 and 10. The user tries to guess
@@ -64,7 +82,7 @@ attempts=0
 while attempts<5:
     username=input("Enter your username: ")
     password=input("Enter your password: ")
-    if username!=correct_username and password!=correct_password:
+    if username!=correct_username or password!=correct_password:
         print ("Wrong username or password. Try again.")
         attempts+=1
     else:
@@ -89,22 +107,26 @@ else:
 # (Notice that it is easy to test if a point falls inside circle A by testing if it fulfills the
 # in equation x^2+y^2<1.).
 
+# ask user to generate random numbers
 import random
-def approximate_pi(num_points):
-    inside_circle = 0
-    for _ in range(num_points):
-        x = random.uniform(-1,1)
-        y = random.uniform(-1,1)
-        if x**2 + y**2 <= 1:
-            inside_circle += 1
+num_points=int(input("Enter the number of points to generate: "))
+inside_circle=0
+counter=0
+while counter<num_points:
+    x=random.uniform(-1,1)
+    y=random.uniform(-1,1)
+    #check the points whether it is inside circle or not
+    if x**2+y**2<=1:
+        inside_circle+=1
+    counter+=1
+#calculate the approximate of pi
+    pi_approx=4*inside_circle/num_points
+    print(f"The approximate value of pi using {num_points}points is : {pi_approx}")
 
-    pi_approximation = 4 * inside_circle / num_points
-    return pi_approximation
-# set the number of random points to generate
-num_points = 1000000 # given as 1 million
 
-# calculate the value of pi approximate
-pi_approximation = approximate_pi(num_points)
-print(pi_approximation)
+
+
+
+
 
 
