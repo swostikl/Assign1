@@ -18,11 +18,21 @@ roll()
 # the last exercise is that the dice rolling in the main program continues until the program gets
 # the maximum number on the dice, which is asked from the user at the beginning.
 
-# def num(a):
-#     a=random.randint(1,a)
-#     return a
-# #put user defined sides on dice
-# roll_dice=int(input('Enter the number of dice: '))
+def num(sides):
+    return random.randint(1,sides)
+def main():
+# put user defined sides on dice
+    sides=int(input('Enter the number of the sides of dice: '))
+    while True:
+        dice_roll=num(sides)
+        print(f"The rolled dice a {dice_roll}")
+        if dice_roll==sides:
+            print("You rolled the maximum number of sides")
+        break
+main()
+
+
+
 
 
 
@@ -65,19 +75,18 @@ main()
 # both the original and  the cut-down list.
 
 
-lis=[]
-def main():
-    odd_num=0
-    while True:
-        num=int(input('Enter the integers(or press enter to quit): '))
-        if num%2==0:
-            lis.append(num)
-        else:
-            odd_num=odd_num+1
-main()
+def remove_odd_numbers(number):
+# function takes list of integer, removes odd number and return only even number in new list
+    return[num for num in number if num % 2==0]
+#test function
+#creating list of integer
+original_list=[1,2,3,4,5,6,7,8,9,10]
+#call function to remove odd num
+second_list=remove_odd_numbers(original_list)
 
-for number in lis:
-    print(number)
+#print result
+print (f"original_list: {original_list}")
+print (f"second_list: {second_list}")
 
 
 #6.Write a function that receives two parameters: the diameter of a round pizza in centimeters and
@@ -86,22 +95,23 @@ for number in lis:
 # and tells the user which pizza provides better value for money (which of them has a lower unit
 # price). You must use the function you wrote for calculating the unit prices.
 
-diameter1 =float(input('Enter the diameter1(in cm): '))
-diameter2 =float(input('Enter the diameter2(in cm): '))
-#unit price of pizza is per square meter
-pizza1=float(input('enter the price of pizza1(in euros): '))
-pizza2=float(input('enter the price of pizza2(in euros): '))
-# to find out put the formula of area of circle i.e. area= pi/4*d**2
-area1=(3.14/4)*diameter1**2
-area2=(3.14/4)*diameter2**2
+def pizza():
+    diameter1 =float(input('Enter the diameter1(in cm): '))
+    diameter2 =float(input('Enter the diameter2(in cm): '))
+    #unit price of pizza is per square meter
+    pizza1=float(input('enter the price of pizza1(in euros): '))
+    pizza2=float(input('enter the price of pizza2(in euros): '))
+    # to find out put the formula of area of circle i.e. area= pi/4*d**2
+    area1=(3.14/4)*diameter1**2
+    area2=(3.14/4)*diameter2**2
 
-price1=pizza1/area1
-price2=pizza2/area2
-if price1>price2:
-    print(f'The price of pizza is {price2:.2f} per square meter, buy pizza 2')
-elif price1<price2:
-    print(f'The price of pizza is {price1:.2f} per square meter, buy pizza 1')
-
+    price1=pizza1/area1
+    price2=pizza2/area2
+    if price1>price2:
+        print(f'The price of pizza is {price2:.2f} euros per square meter, buy pizza 2')
+    elif price1<price2:
+        print(f'The price of pizza is {price1:.2f}  euros per square meter, buy pizza 1')
+pizza()
 
 
 
