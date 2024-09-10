@@ -6,12 +6,13 @@ total_sum=0
 for i in range(dice):
     dice_roll=random.randint(1,6)
     total_sum+=dice_roll
-print(f"The total sum of dice rolls is :, {total_sum}")
+print(f"The total sum of dice rolls is : {total_sum}")
 
 
 #2.Write a program that asks the user to enter numbers until they input an empty string to quit.At
 # the end, the program prints out the five greatest numbers sorted in descending order. Hint: You
 #can reverse the order of sorted list items by using the sort method with the reverse=True argument.
+#need to recheck this code
 def main():
     numbers=[]
     while True:
@@ -19,7 +20,7 @@ def main():
         if descend_num=="":
             break
         numbers.append(descend_num)
-        if len(numbers)<5:
+        if len(numbers)<=5:
             print("not enough number, please enter number")
         else:
             numbers.sort(reverse=True)
