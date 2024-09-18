@@ -1,8 +1,10 @@
 
 from random import random, randint
-
+# 1. Write a program that asks your name and then greets you by your name: Examples:
+# If you enter Viivi as your name, the program will greet you with Hello, Viivi!.
+# If you enter Ahmed as your name, the program will greet you with Hello, Ahmed!.
 name1=input("Enter first name: ")
-print("Hello", name1)
+print(f"Hello, {name1}!")
 
 
 import math
@@ -29,7 +31,7 @@ b=float(input("Enter a value of second integer: "))
 c=float(input("Enter a value of third integer: "))
 sum=a+b+c
 product=a*b*c
-average=sum/product
+average=sum/3
 print("The sum is", sum)
 print("The product is", product)
 print("The average is", average)
@@ -49,7 +51,7 @@ total_lots=(talent_pounds*32)+lots
 total_grams=(total_lots*13.3)
 kilogram=int(total_grams/1000)
 remaining_grams=float(total_grams%1000)
-print(f"The weight in modern units {kilogram} and remaining grams{remaining_grams :.2f}")
+print(f"The weight in modern units {kilogram} and remaining grams {remaining_grams :.2f}")
 
 
 #Two random combinations of numbers for a combination lock:
