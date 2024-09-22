@@ -48,3 +48,44 @@ main()
 # user chooses to quit, the program execution ends. The user can choose a new option as many times they want until
 # they choose to quit. (The ICAO code is an identifier that is unique to each airport. For example, the ICAO code of
 # Helsinki-Vantaa Airport is EFHK. You can easily find the ICAO codes of different airports online.)
+airports = {'VNKA': 'Kathmandu Airport',
+           'VNIA':'Deli Airport',
+           'VNFA': 'Helsinki Airport',
+           'VNCA':'China Airport'
+            }
+while True:
+    print("\nSelect an option")
+    print("1. Enter a new airport")
+    print("2. Fetch existing airport information")
+    print("3. Exit")
+    choice = input("Enter your choice (1/2/3): ")
+    if choice == '1':
+        icao_code = input("Enter the ICAO code of the airport: ")
+        if icao_code in airports:
+            print(f"The ICAO code {icao_code} has been already added")
+        else:
+            new_name = input("Enter the new airport name: ")
+            if new_name:
+                airports[icao_code] = new_name
+                print(f"New airport name {new_name}  with ICAO code {icao_code} has been added")
+            else:
+                print("Error: Airport name is empty")
+    elif choice == '2':
+        if airports:
+            print("Here are the available lists of airports:")
+            for key in airports.keys():
+                print(key)
+            icaoCode = input("Enter the ICAO code of the airport: ").upper()
+            if icaoCode in airports:
+                print(f"The name of the airport with ICAO code {icaoCode} is: {airports[icaoCode]}")
+            else:
+                print("Airport not found")
+        else:
+            print("No airports available in te list")
+
+
+    elif choice == '3':
+        print("Good Bye")
+        break
+    else:
+        print("Invalid option, please select option")
